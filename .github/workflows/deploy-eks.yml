@@ -154,7 +154,7 @@ jobs:
           secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Fallo en el despliegue: Burger & Pizza Hub
+          subject: Fallo en el despliegue Burger & Pizza Hub
           to: sebastian.javier.gon@gmail.com
           from: GitHub Actions CI/CD
           body: |
