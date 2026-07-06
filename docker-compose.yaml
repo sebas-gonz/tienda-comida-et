@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  tienda-db:
+    build: ./db
+    container_name: local-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: tienda_comida
+      MYSQL_USER: alumno
+      MYSQL_PASSWORD: alumno123
+
+  tienda-backend:
+    build: ./backend
+    container_name: local-backend
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: tienda-db
+      DB_USER: root
+      DB_PASSWORD: admin123
+      DB_NAME: tienda_comida
+      DB_PORT: 3306
+    depends_on:
+      - tienda-db
+
+  tienda-frontend:
+    build: ./frontend
+    container_name: local-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - tienda-backend
