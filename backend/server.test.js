@@ -3,7 +3,7 @@ const app = require("./server");
 
 describe("Pruebas de la API de Comida Rápida", () => {
 
-    test("El endpoint /api/health debería devolver status 200 y mensaje ok", async () => {
+    test("El endpoint /api/health debe devolver status 200 y mensaje ok", async () => {
         const response = await request(app).get("/api/health");
 
         expect(response.statusCode).toBe(200);
@@ -12,7 +12,7 @@ describe("Pruebas de la API de Comida Rápida", () => {
         expect(response.body).toHaveProperty("message", "Backend de tienda de comida en ejecucion");
     });
 
-    test("Debería rechazar un producto sin datos (Validación POST)", async () => {
+    test("Debe rechazar un producto sin datos", async () => {
         const response = await request(app).post("/api/productos").send({});
 
         expect(response.statusCode).toBe(200);

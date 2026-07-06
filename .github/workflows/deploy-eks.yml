@@ -28,7 +28,7 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      - name: Ejecutar Pruebas Unitarias (Si esto falla, se cancela el despliegue)
+      - name: Ejecutar Pruebas Unitarias
         working-directory: ./backend
         run: npm test
 
